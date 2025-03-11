@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xhn2mj0&9u9qf%m!u*4y@uuilv8=2ow@fv^e5kw*=upf9(4tzi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://library-management-22.vercel.app/']
 
 
 # Application definition
@@ -74,6 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'PageNest.urls'
@@ -96,7 +97,7 @@ TEMPLATES = [
 
 AUTH_USER_MODEL = "users.CustomUser"
 
-WSGI_APPLICATION = 'PageNest.wsgi.application'
+WSGI_APPLICATION = 'PageNest.wsgi.app'
 
 
 # Database
