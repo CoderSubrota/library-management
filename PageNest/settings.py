@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-xhn2mj0&9u9qf%m!u*4y@uuilv8=2ow@fv^e5kw*=upf9(4tzi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://library-management-22.vercel.app/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ),
 }
 
@@ -99,6 +103,7 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 WSGI_APPLICATION = 'PageNest.wsgi.app'
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -145,7 +150,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'  # URL path for static files
+
+# Directory where static files will be collected
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Additional static files directories (if needed)
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',  # Ensure you have a 'static' folder in your project
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
