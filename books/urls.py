@@ -29,12 +29,12 @@ router.register(r'borrow', BorrowRecordViewSet)
 
 # URL patterns
 urlpatterns = [
-    path('auth/', include('djoser.urls')),  # Djoser authentication URLs
-    path('auth/', include('djoser.urls.jwt')),  # Djoser JWT URLs
-    path('auth/auth/users/', TokenRefreshView.as_view(), name='token_refresh'),  # JWT refresh
-    path('auth/jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # JWT refresh
-    path('auth/jwt/verify/', TokenVerifyView.as_view(), name='token_verify'),  # JWT verify
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-ui'),  # Swagger UI
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc'),  # ReDoc UI
-    path('', include(router.urls)),  # Include the router URLs
+    path('auth/', include('djoser.urls')),  
+    path('auth/', include('djoser.urls.jwt')),
+    path('auth/users/', TokenRefreshView.as_view(), name='users'),  
+    path('auth/jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  
+    path('auth/jwt/verify/', TokenVerifyView.as_view(), name='token_verify'), 
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc'), 
+    path('', include(router.urls)), 
 ]
