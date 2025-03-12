@@ -1,13 +1,19 @@
 {
-  "builds": [{
+  "version": 2,
+  "builds": [
+    {
       "src": "PageNest/wsgi.py",
       "use": "@ardnt/vercel-python-wsgi",
-      "config": { "maxLambdaSize": "45mb" }
-  }],
-  "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "PageNest/wsgi.py"
+      "config": {
+        "maxLambdaSize": "45mb",
+        "runtime": "3.12.7"
       }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "PageNest/wsgi.py"
+    }
   ]
 }
