@@ -6,7 +6,7 @@
       "use": "@ardnt/vercel-python-wsgi",
       "config": {
         "maxLambdaSize": "45mb",
-        "runtime": "3.12.7"
+        "runtime": "python3.11" 
       }
     }
   ],
