@@ -101,7 +101,7 @@ TEMPLATES = [
 
 AUTH_USER_MODEL = "users.CustomUser"
 
-WSGI_APPLICATION = 'PageNest.wsgi.app'
+WSGI_APPLICATION = "PageNest.wsgi.app"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -153,12 +153,8 @@ USE_TZ = True
 STATIC_URL = '/static/'  # URL path for static files
 
 # Directory where static files will be collected
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles' 
 
-# Additional static files directories (if needed)
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Ensure you have a 'static' folder in your project
-]
 
 
 # Default primary key field type
