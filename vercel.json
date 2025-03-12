@@ -1,20 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
+  "builds": [{
       "src": "PageNest/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
-    }
-  ],
+      "use": "@ardnt/vercel-python-wsgi",
+      "config": { "maxLambdaSize": "45mb" }
+  }],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "PageNest/wsgi.py"
-    }
-  ],
-  "env": {
-    "DJANGO_SETTINGS_MODULE": "PageNest.settings",
-    "PYTHONUNBUFFERED": "1"
-  }
+      {
+          "src": "/(.*)",
+          "dest": "PageNest/wsgi.py"
+      }
+  ]
 }
